@@ -14,7 +14,7 @@ Aplicación móvil desarrollada en **Kotlin** para la gestión, consulta de men�
 ### Configuración inicial
 1. Clona el repositorio en tu equipo:
    ```bash
-   git clone https://github.com/USUARIO/NOMBRE_DEL_REPOSITORIO.git
+   git clone https://github.com/VladyThrash/App_Android_Comedor_Universitario_UV.git
    cd NOMBRE_DEL_REPOSITORIO
    ```
 2. Abre el proyecto en Android Studio y espera a que **Gradle** sincronice todas las dependencias antes de compilar.
