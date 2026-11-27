@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardPlatillo"
+    style="@style/UvCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Contenedor imagen y badges (.platillo-card-img) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/platillo_img_height"
+            android:background="@color/uv_gris_100">
+
+            <TextView
+                android:id="@+id/tvSinImagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sin imagen"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/ivPlatilloImagen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Imagen del platillo"
+                android:scaleType="centerCrop" />
+
+            <!-- Badge izquierda: Menú del día / Categoría / AGOTADO -->
+            <TextView
+                android:id="@+id/tvPlatilloBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_pill_shape"
+                android:backgroundTint="@color/uv_azul"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:textColor="@color/uv_blanco"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                tools:text="Menú del día" />
+
+            <!-- Badge derecha: Beca -->
+            <TextView
+                android:id="@+id/tvPlatilloBadgeBeca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_pill_shape"
+                android:backgroundTint="@color/uv_verde"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:text="Beca"
+                android:textColor="@color/uv_blanco"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </FrameLayout>
+
+        <!-- Cuerpo de la tarjeta (.platillo-card-body) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:id="@+id/tvPlatilloNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="2"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Chilaquiles Verdes con Pollo" />
+
+            <TextView
+                android:id="@+id/tvPlatilloDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="12sp"
+                tools:text="Totopos bañados en salsa verde con pollo deshebrado, crema y queso." />
+
+            <TextView
+                android:id="@+id/tvPlatilloCupoRestante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/uv_rojo"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Solo quedan 4"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <!-- Pie de tarjeta: Precio + Botón (.platillo-card-footer) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/tvPlatilloPrecio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/uv_azul"
+                android:textSize="15sp"
+                tools:text="$35.00" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAgregarPlatillo"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="0dp"
+                android:paddingHorizontal="12dp"
+                android:text="+ Agregar"
+                android:textAllCaps="false"
+                android:textColor="@color/uv_blanco"
+                android:textSize="12sp"
+                app:backgroundTint="@color/uv_azul"
+                app:cornerRadius="18dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

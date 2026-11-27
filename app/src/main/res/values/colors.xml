@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Institucionales UV -->
+    <color name="uv_azul">#18529D</color>
+    <color name="uv_azul_dark">#0F3A70</color>
+    <color name="uv_azul_light">#DCE8F7</color>
+
+    <color name="uv_verde">#28AD56</color>
+    <color name="uv_verde_dark">#1A7A3C</color>
+    <color name="uv_verde_light">#D4F2E0</color>
+
+    <color name="uv_amarillo">#F5B800</color>
+    <color name="uv_amarillo_dark">#E0A800</color>
+    <color name="uv_amarillo_light">#FFF8E0</color>
+    <color name="uv_amarillo_texto">#744210</color>
+
+    <!-- Neutros y Superficies -->
+    <color name="uv_blanco">#FFFFFF</color>
+    <color name="uv_negro">#000000</color>
+    <color name="uv_gris_100">#F8F9FA</color>
+    <color name="uv_gris_200">#F0F2F5</color>
+    <color name="uv_gris_300">#E0E4EA</color>
+    <color name="uv_gris_500">#8892A0</color>
+    <color name="uv_gris_700">#4A5568</color>
+    <color name="uv_gris_900">#1A202C</color>
+
+    <!-- Alertas y Errores -->
+    <color name="uv_rojo">#E53E3E</color>
+    <color name="uv_rojo_dark">#C53030</color>
+    <color name="uv_rojo_light">#FFF5F5</color>
+    <color name="uv_rojo_borde">#FEB2B2</color>
+
+    <!-- Tokens Semánticos -->
+    <color name="color_primario">@color/uv_azul</color>
+    <color name="color_secundario">@color/uv_verde</color>
+    <color name="color_acento">@color/uv_amarillo</color>
+    <color name="color_fondo">@color/uv_gris_100</color>
+    <color name="color_superficie">@color/uv_blanco</color>
+    <color name="color_texto">@color/uv_gris_900</color>
+    <color name="color_texto_suave">@color/uv_gris_500</color>
+    <color name="color_borde">@color/uv_gris_300</color>
 </resources>

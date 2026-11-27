@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="nav_height">64dp</dimen>
+    <dimen name="radio_sm">8dp</dimen>
+    <dimen name="radio">12dp</dimen>
+    <dimen name="radio_lg">16dp</dimen>
+    <dimen name="radio_xl">24dp</dimen>
+
+    <dimen name="padding_pantalla">16dp</dimen>
+    <dimen name="padding_card">18dp</dimen>
+    <dimen name="platillo_img_height">140dp</dimen>
+</resources>

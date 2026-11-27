@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tipografía -->
+    <style name="UvPageTitle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/uv_gris_900</item>
+    </style>
+
+    <style name="UvPageSubtitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/uv_gris_500</item>
+    </style>
+
+    <style name="UvCardTitle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/uv_gris_900</item>
+    </style>
+
+    <style name="UvFormLabel">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">@color/uv_gris_700</item>
+    </style>
+
+    <!-- Tarjetas (.card) -->
+    <style name="UvCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/uv_blanco</item>
+        <item name="cardCornerRadius">@dimen/radio_lg</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeColor">@color/uv_gris_300</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Botones (.btn-*) -->
+    <style name="UvButtonPrimario" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/uv_azul</item>
+        <item name="android:textColor">@color/uv_blanco</item>
+        <item name="cornerRadius">@dimen/radio</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="UvButtonSecundario" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/uv_verde</item>
+        <item name="android:textColor">@color/uv_blanco</item>
+        <item name="cornerRadius">@dimen/radio</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="UvButtonOutline" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/uv_azul</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/uv_azul</item>
+        <item name="cornerRadius">@dimen/radio</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Campos de formulario (.form-control) -->
+    <style name="UvTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/radio</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radio</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radio</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radio</item>
+        <item name="boxStrokeColor">@color/uv_azul</item>
+        <item name="boxBackgroundColor">@color/uv_blanco</item>
+    </style>
+</resources>
