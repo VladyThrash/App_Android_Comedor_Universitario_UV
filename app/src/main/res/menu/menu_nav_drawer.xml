@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Grupo Público -->
+    <group android:id="@+id/grupo_nav_publico">
+        <item
+            android:id="@+id/nav_login"
+            android:title="Iniciar sesión" />
+        <item
+            android:id="@+id/nav_registro"
+            android:title="Crear cuenta" />
+    </group>
+
+    <!-- Grupo Comensal / Becado -->
+    <group android:id="@+id/grupo_nav_comensal">
+        <item
+            android:id="@+id/nav_menu"
+            android:title="Menú del Comedor" />
+        <item
+            android:id="@+id/nav_pedido_historial"
+            android:title="Mis Pedidos" />
+        <item
+            android:id="@+id/nav_becado_panel"
+            android:title="Mi Beca Alimenticia" />
+        <item
+            android:id="@+id/nav_perfil"
+            android:title="Mi Perfil y Tarjetas" />
+    </group>
+
+    <!-- Grupo Empleado -->
+    <group android:id="@+id/grupo_nav_empleado">
+        <item
+            android:id="@+id/nav_empleado_dashboard"
+            android:title="Panel de Cocina" />
+        <item
+            android:id="@+id/nav_empleado_pos"
+            android:title="Punto de Venta (POS)" />
+        <item
+            android:id="@+id/nav_empleado_disponibilidad"
+            android:title="Disponibilidad A la Carta" />
+    </group>
+
+    <!-- Grupo Administrador -->
+    <group android:id="@+id/grupo_nav_admin">
+        <item
+            android:id="@+id/nav_admin_dashboard"
+            android:title="Panel de Administración" />
+        <item
+            android:id="@+id/nav_admin_menu"
+            android:title="Gestión de Menú" />
+        <item
+            android:id="@+id/nav_admin_menu_semanal"
+            android:title="Menú Semanal" />
+        <item
+            android:id="@+id/nav_admin_recetas_lista"
+            android:title="Recetas" />
+        <item
+            android:id="@+id/nav_admin_inventario"
+            android:title="Inventario" />
+        <item
+            android:id="@+id/nav_admin_usuarios"
+            android:title="Usuarios" />
+        <item
+            android:id="@+id/nav_admin_becados"
+            android:title="Becados Autorizados" />
+        <item
+            android:id="@+id/nav_admin_calificaciones"
+            android:title="Calificaciones" />
+    </group>
+
+    <!-- Sesión -->
+    <item
+        android:id="@+id/nav_cerrar_sesion"
+        android:title="Cerrar sesión" />
+
+</menu>

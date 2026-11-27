@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/UvCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Borde izquierdo identificador de tipo/estado (4dp) -->
+        <View
+            android:id="@+id/viewCocinaBordeLateral"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/uv_azul" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Header (.pedido-cocina-header) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvCocinaFolio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="16sp"
+                        tools:text="UV-2026-0045" />
+
+                    <TextView
+                        android:id="@+id/tvCocinaTipoHora"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/uv_gris_500"
+                        android:textSize="12sp"
+                        tools:text="Inmediato · 14:22" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvCocinaEstadoBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_shape"
+                    android:backgroundTint="@color/uv_amarillo_light"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="3dp"
+                    android:textColor="@color/uv_amarillo_texto"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    tools:text="PENDIENTE" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_borde" />
+
+            <!-- Franja de recogida programada (solo pedidos anticipados) -->
+            <TextView
+                android:id="@+id/tvCocinaRecogidaAnticipada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/uv_amarillo_light"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:textColor="@color/uv_amarillo_texto"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Recoger a las 15:30 · Barra Principal"
+                tools:visibility="visible" />
+
+            <!-- Lista de platillos de la comanda -->
+            <TextView
+                android:id="@+id/tvCocinaPlatillosLista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="14sp"
+                tools:text="2x Chilaquiles Verdes [Beca]\n    Sin cebolla, salsa aparte\n1x Agua de Jamaica 500ml" />
+
+            <!-- Instrucciones especiales del pedido -->
+            <LinearLayout
+                android:id="@+id/layoutCocinaNotas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_alert_aviso"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INSTRUCCIONES ESPECIALES"
+                    android:textColor="@color/uv_amarillo_texto"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCocinaNotasTexto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/uv_amarillo_texto"
+                    android:textSize="13sp"
+                    tools:text="Servir para llevar con cubiertos." />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/uv_gris_200" />
+
+            <!-- Botones de acción según el estado actual -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCocinaAvanzarEstado"
+                    style="@style/UvButtonPrimario"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Iniciar preparación"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCocinaCancelar"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Cancelar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/uv_rojo"
+                    android:textSize="12sp"
+                    app:backgroundTint="@color/uv_gris_200"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

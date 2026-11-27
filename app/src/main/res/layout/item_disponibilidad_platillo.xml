@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardDispPlatillo"
+    style="@style/UvCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDispPlatilloNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="Enchiladas Suizas" />
+
+            <TextView
+                android:id="@+id/tvDispPlatilloCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="12sp"
+                tools:text="Plato Fuerte" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDispPlatilloPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/uv_azul"
+            android:textSize="15sp"
+            tools:text="$48.00" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToggleDisponibilidad"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="112dp"
+            android:layout_height="40dp"
+            android:text="Disponible"
+            android:textAllCaps="false"
+            android:textColor="@color/uv_verde_dark"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/uv_verde_light"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

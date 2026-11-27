@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fondo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_pantalla">
+
+        <!-- Cabecera de perfil con avatar (.perfil-avatar) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPerfilIniciales"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/bg_avatar_perfil"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:textColor="@color/uv_blanco"
+                android:textSize="26sp"
+                tools:text="VY" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPerfilNombreCompleto"
+                    style="@style/UvPageTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    tools:text="Vladimir Yepez Contreras" />
+
+                <TextView
+                    android:id="@+id/tvPerfilEmailHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/uv_gris_500"
+                    android:textSize="13sp"
+                    tools:text="zs22000000@estudiantes.uv.mx" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvPerfilRolBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_shape"
+                        android:backgroundTint="@color/uv_azul_light"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="3dp"
+                        android:textColor="@color/uv_azul"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        tools:text="ESTUDIANTE" />
+
+                    <TextView
+                        android:id="@+id/tvPerfilEstadoBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_pill_shape"
+                        android:backgroundTint="@color/uv_verde_light"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="3dp"
+                        android:text="Cuenta activa"
+                        android:textColor="@color/uv_verde_dark"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Alertas -->
+        <TextView
+            android:id="@+id/tvPerfilAlertaExito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_alert_exito"
+            android:padding="12dp"
+            android:textColor="@color/uv_verde_dark"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvPerfilAlertaError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_alert_error"
+            android:padding="12dp"
+            android:textColor="@color/uv_rojo_dark"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <!-- Pestañas de perfil (.perfil-tabs) -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/uv_blanco"
+            app:tabIndicatorColor="@color/uv_azul"
+            app:tabIndicatorHeight="3dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/uv_azul"
+            app:tabTextColor="@color/uv_gris_500">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datos personales" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seguridad" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mis Tarjetas" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mi beca" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datos académicos" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- ======================================================= -->
+        <!-- TAB 1: DATOS PERSONALES (#ptab-datos)                   -->
+        <!-- ======================================================= -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/panelPerfilDatos"
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_card">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Información personal" />
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Nombre(s)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPerfilNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLines="1"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Apellidos" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPerfilApellidos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLines="1"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Correo electrónico" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@color/uv_gris_100"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPerfilEmailDisabled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:textColor="@color/uv_gris_500"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="El correo no puede modificarse. Contacta a soporte si necesitas cambiarlo."
+                    android:textColor="@color/uv_gris_500"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Teléfono" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPerfilTelefono"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:hint="10 dígitos"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGuardarDatosPerfil"
+                    style="@style/UvButtonPrimario"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Guardar cambios" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ======================================================= -->
+        <!-- TAB 2: SEGURIDAD (#ptab-seguridad)                      -->
+        <!-- ======================================================= -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/panelPerfilSeguridad"
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_card">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Cambiar contraseña" />
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Contraseña actual" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassActual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tu contraseña actual"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Nueva contraseña" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassNueva"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mínimo 8 caracteres"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvMsgPassNueva"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Confirmar nueva contraseña" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassConfirmar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Repite la nueva contraseña"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_alert_aviso"
+                    android:padding="12dp"
+                    android:text="Después de cambiar tu contraseña, se cerrará tu sesión y tendrás que volver a iniciarla."
+                    android:textColor="@color/uv_amarillo_texto"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCambiarPassword"
+                    style="@style/UvButtonPrimario"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Cambiar contraseña" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ======================================================= -->
+        <!-- TAB 3: MIS TARJETAS (#ptab-tarjetas)                    -->
+        <!-- ======================================================= -->
+        <LinearLayout
+            android:id="@+id/panelPerfilTarjetas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_alert_info"
+                android:padding="12dp"
+                android:text="Seguridad: Solo se guardan los últimos 4 dígitos de tu tarjeta. Nunca guardamos el número completo ni el CVV."
+                android:textColor="@color/uv_azul_dark"
+                android:textSize="13sp" />
+
+            <!-- Estado vacío tarjetas -->
+            <LinearLayout
+                android:id="@+id/layoutSinTarjetas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="24dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="No tienes tarjetas guardadas"
+                    android:textColor="@color/uv_gris_700"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Agrega una para hacer pagos más rápido."
+                    android:textColor="@color/uv_gris_500"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Lista de tarjetas guardadas -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTarjetasGuardadas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Formulario nueva tarjeta -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/UvCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_card">
+
+                    <TextView
+                        style="@style/UvCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="+ Agregar nueva tarjeta" />
+
+                    <TextView
+                        style="@style/UvFormLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Alias / Apodo" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/UvTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTarjetaAlias"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Mi tarjeta principal"
+                            android:inputType="textCapSentences"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        style="@style/UvFormLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Número de tarjeta" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/UvTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTarjetaNumero"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="0000 0000 0000 0000"
+                            android:inputType="number"
+                            android:maxLength="23"
+                            android:maxLines="1"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="Solo se guardarán los últimos 4 dígitos. Tu número completo nunca se almacena."
+                        android:textColor="@color/uv_gris_500"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        style="@style/UvFormLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Nombre del titular" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/UvTextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTarjetaTitular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Como aparece en la tarjeta"
+                            android:inputType="textPersonName|textCapCharacters"
+                            android:maxLength="120"
+                            android:maxLines="1"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        style="@style/UvFormLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Vencimiento" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            app:boxBackgroundColor="@color/uv_blanco"
+                            app:boxCornerRadiusBottomEnd="@dimen/radio"
+                            app:boxCornerRadiusBottomStart="@dimen/radio"
+                            app:boxCornerRadiusTopEnd="@dimen/radio"
+                            app:boxCornerRadiusTopStart="@dimen/radio">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/actvTarjetaMes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Mes"
+                                android:inputType="none"
+                                android:textSize="14sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            app:boxBackgroundColor="@color/uv_blanco"
+                            app:boxCornerRadiusBottomEnd="@dimen/radio"
+                            app:boxCornerRadiusBottomStart="@dimen/radio"
+                            app:boxCornerRadiusTopEnd="@dimen/radio"
+                            app:boxCornerRadiusTopStart="@dimen/radio">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/actvTarjetaAnio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Año"
+                                android:inputType="none"
+                                android:textSize="14sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbTarjetaPredeterminada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="Usar como tarjeta predeterminada"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="13sp"
+                        app:buttonTint="@color/uv_azul" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGuardarTarjeta"
+                        style="@style/UvButtonPrimario"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="Guardar tarjeta" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- ======================================================= -->
+        <!-- TAB 4: MI BECA (#ptab-beca)                             -->
+        <!-- ======================================================= -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/panelPerfilBeca"
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_card">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Mi Beca Alimentaria" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Comidas usadas esta semana"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvBecaConteoUso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/uv_azul"
+                        android:textSize="15sp"
+                        tools:text="2 / 5" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBecaUso"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    android:progress="40"
+                    android:progressBackgroundTint="@color/uv_gris_200"
+                    android:progressTint="@color/uv_verde" />
+
+                <TextView
+                    android:id="@+id/tvBecaDescripcionRestante"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="18dp"
+                    android:textColor="@color/uv_gris_500"
+                    android:textSize="12sp"
+                    tools:text="Te quedan 3 comidas de beca disponibles esta semana." />
+
+                <!-- Filas de resumen de beca -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_item_suave"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tipo de beca"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBecaTipo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="Alimentaria Completa" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_item_suave"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Vigencia"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBecaVigencia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="2026-08-01 al 2026-12-15" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_item_suave"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Estado"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBecaEstadoVigencia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_verde"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="Activa" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_alert_info"
+                    android:padding="12dp"
+                    android:text="La beca cubre el 100% del costo de los platillos del menú del día. Los platillos a la carta siempre tienen costo."
+                    android:textColor="@color/uv_azul_dark"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ======================================================= -->
+        <!-- TAB 5: DATOS ACADÉMICOS (#ptab-academico)               -->
+        <!-- ======================================================= -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/panelPerfilAcademico"
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_card">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Datos académicos" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_item_suave"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Matrícula"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvAcademicoMatricula"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="zS22000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_item_suave"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Carrera"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvAcademicoCarrera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="Ingeniería Informática" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_item_suave"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Semestre"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvAcademicoSemestre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="7°" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_alert_info"
+                    android:padding="12dp"
+                    android:text="Para actualizar tus datos académicos contacta a la administración del comedor."
+                    android:textColor="@color/uv_azul_dark"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

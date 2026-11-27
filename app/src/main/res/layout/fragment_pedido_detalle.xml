@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fondo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_pantalla">
+
+        <!-- Enlace volver a historial -->
+        <LinearLayout
+            android:id="@+id/btnVolverHistorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:contentDescription="Volver"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Mis pedidos"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Banner Pedido recién creado (.exito-banner) -->
+        <LinearLayout
+            android:id="@+id/layoutBannerPedidoCreado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_alert_exito"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="¡Pedido confirmado!"
+                android:textColor="@color/uv_verde_dark"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Tu pedido ha sido registrado exitosamente. Descarga tu comprobante o muestra el código QR al recoger tu comida."
+                android:textColor="@color/uv_gris_700"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Banner para calificar pedido entregado/listo (.calificar-banner) -->
+        <LinearLayout
+            android:id="@+id/layoutBannerCalificar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_alert_aviso"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="¿Qué te pareció este pedido?"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:text="Tu opinión nos ayuda a mejorar la calidad del comedor."
+                android:textColor="@color/uv_gris_700"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIrACalificar"
+                style="@style/UvButtonPrimario"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Dejar reseña"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Banner ya calificado -->
+        <TextView
+            android:id="@+id/tvBannerYaCalificado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_alert_info"
+            android:padding="12dp"
+            android:text="Ya calificaste este pedido. ¡Gracias!"
+            android:textColor="@color/uv_azul_dark"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <!-- Encabezado de Folio, Estado y PDF -->
+        <TextView
+            android:id="@+id/tvDetalleFolio"
+            style="@style/UvPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Pedido UV-2026-0042" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDetalleEstadoBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_shape"
+                android:backgroundTint="@color/uv_verde_light"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:textColor="@color/uv_verde_dark"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                tools:text="LISTO" />
+
+            <TextView
+                android:id="@+id/tvDetalleFechaCreacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="13sp"
+                tools:text="• 27/11/2026 13:15" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDescargarComprobantePdf"
+            style="@style/UvButtonPrimario"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="16dp"
+            android:text="Descargar comprobante PDF" />
+
+        <!-- Aviso de Pedido Anticipado (.anticipado-aviso) -->
+        <LinearLayout
+            android:id="@+id/layoutDetalleAnticipado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_alert_aviso"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pedido anticipado"
+                android:textColor="@color/uv_amarillo_texto"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDetalleProgramacionInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/uv_gris_700"
+                android:textSize="13sp"
+                tools:text="Recoger el 28/11/2026 a las 14:00 en Barra Principal" />
+        </LinearLayout>
+
+        <!-- Tarjeta Método de Pago (.pago-card) -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/uv_azul_light"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Método de pago"
+                    android:textColor="@color/uv_gris_700"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvDetalleMetodoPago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/uv_azul"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Beca alimentaria" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Sección Código QR (.qr-section) -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Tu código QR"
+                    android:textColor="@color/uv_azul" />
+
+                <ImageView
+                    android:id="@+id/ivDetalleCodigoQr"
+                    android:layout_width="210dp"
+                    android:layout_height="210dp"
+                    android:background="@drawable/bg_item_suave"
+                    android:contentDescription="Código QR del pedido"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Muestra este código al personal del comedor cuando recojas tu pedido"
+                    android:textColor="@color/uv_gris_500"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Caja Platillos (.info-box) -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Platillos"
+                    android:textColor="@color/uv_azul" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDetallePlatillos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Caja Totales -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Totales"
+                    android:textColor="@color/uv_azul" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Subtotal"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleSubtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="14sp"
+                        tools:text="$35.00" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutDetalleDescuentoBeca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Descuento beca"
+                        android:textColor="@color/uv_verde_dark"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleDescuentoBeca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_verde_dark"
+                        android:textSize="14sp"
+                        tools:text="-$35.00" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/uv_azul" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="TOTAL"
+                        android:textColor="@color/uv_azul"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/uv_azul"
+                        android:textSize="17sp"
+                        tools:text="$0.00" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Caja Información del Cliente -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    style="@style/UvCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Información"
+                    android:textColor="@color/uv_azul" />
+
+                <TextView
+                    android:id="@+id/tvDetalleCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="@color/uv_gris_900"
+                    android:textSize="13sp"
+                    tools:text="Cliente: Vladimir Yepez Contreras" />
+
+                <TextView
+                    android:id="@+id/tvDetalleTipoPedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="@color/uv_gris_900"
+                    android:textSize="13sp"
+                    tools:text="Tipo: INMEDIATO" />
+
+                <TextView
+                    android:id="@+id/tvDetalleEstadoTexto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/uv_gris_900"
+                    android:textSize="13sp"
+                    tools:text="Estado: LISTO" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

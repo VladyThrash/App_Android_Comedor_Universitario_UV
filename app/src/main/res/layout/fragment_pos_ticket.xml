@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fondo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_pantalla">
+
+        <!-- Barra de acciones (.acciones-no-print) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTicketImprimir"
+                style="@style/UvButtonPrimario"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="Imprimir" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTicketNuevaVenta"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="+ Nueva venta"
+                android:textAllCaps="false"
+                android:textColor="@color/uv_gris_700"
+                app:backgroundTint="@color/uv_gris_200"
+                app:cornerRadius="@dimen/radio" />
+        </LinearLayout>
+
+        <!-- Comprobante térmico (.ticket-wrapper) -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/UvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/uv_blanco"
+            app:cardCornerRadius="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <!-- Cabecera -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="COMEDOR UNIVERSITARIO"
+                    android:textColor="@color/uv_azul"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="Universidad Veracruzana"
+                    android:textColor="@color/uv_gris_700"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvTicketFechaHora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:textColor="@color/uv_gris_700"
+                    android:textSize="12sp"
+                    tools:text="27/11/2026 14:40" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_dashed_line" />
+
+                <!-- Folio (.ticket-folio) -->
+                <TextView
+                    android:id="@+id/tvTicketFolio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    android:background="@color/uv_azul"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:textColor="@color/uv_blanco"
+                    android:textSize="15sp"
+                    tools:text="FOLIO UV-2026-0048" />
+
+                <!-- Metadatos (.ticket-info) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Cajero:"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvTicketCajero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="Vladimir" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutTicketCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Cliente:"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvTicketCliente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="Juan Pablo Salas" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Método pago:"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvTicketMetodoPago"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="EFECTIVO" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_dashed_line" />
+
+                <!-- Platillos vendidos -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTicketItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_dashed_line" />
+
+                <!-- Subtotal y Beca -->
+                <LinearLayout
+                    android:id="@+id/layoutTicketSubtotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Subtotal:"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvTicketSubtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp"
+                        tools:text="$96.00" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutTicketDescuentoBeca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Beca:"
+                        android:textColor="@color/uv_verde_dark"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvTicketDescuentoBeca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="@color/uv_verde_dark"
+                        android:textSize="13sp"
+                        tools:text="-$35.00" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/uv_azul" />
+
+                <!-- TOTAL (.ticket-total) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="TOTAL"
+                        android:textColor="@color/uv_azul"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tvTicketTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:textColor="@color/uv_azul"
+                        android:textSize="18sp"
+                        tools:text="$61.00" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="14dp"
+                    android:background="@drawable/bg_dashed_line" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp"
+                    android:text="¡Gracias por tu preferencia!\nUniversidad Veracruzana"
+                    android:textColor="@color/uv_gris_700"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

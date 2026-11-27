@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/uv_blanco"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- Cabecera (.carrito-header) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="16dp">
+
+            <TextView
+                style="@style/UvCardTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mi Carrito"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/btnCerrarCarrito"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_circle_shape"
+                android:backgroundTint="@color/uv_gris_200"
+                android:contentDescription="Cerrar carrito"
+                android:src="@drawable/ic_close" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_borde" />
+
+        <!-- Estado vacío (#carrito-vacio) -->
+        <LinearLayout
+            android:id="@+id/layoutCarritoVacio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="48dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Tu carrito está vacío"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Agrega platillos del menú"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Lista de artículos (#carrito-items) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCarritoItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp" />
+
+        <!-- Pie del carrito y checkout (#carrito-footer) -->
+        <LinearLayout
+            android:id="@+id/layoutCarritoFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/color_borde" />
+
+            <!-- Resumen de montos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Subtotal"
+                    android:textColor="@color/uv_gris_700"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvCarritoSubtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/uv_gris_700"
+                    android:textSize="14sp"
+                    tools:text="$70.00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFilaDescuentoBeca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Descuento beca"
+                    android:textColor="@color/uv_verde"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvCarritoDescuentoBeca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/uv_verde"
+                    android:textSize="14sp"
+                    tools:text="-$35.00" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="@color/color_borde" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Total"
+                    android:textColor="@color/uv_gris_900"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCarritoTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/uv_gris_900"
+                    android:textSize="18sp"
+                    tools:text="$35.00" />
+            </LinearLayout>
+
+            <!-- Tipo de pedido (INMEDIATO / ANTICIPADO) -->
+            <TextView
+                style="@style/UvFormLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Tipo de pedido" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleTipoPedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:checkedButton="@id/btnTipoInmediato"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTipoInmediato"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Inmediato"
+                    android:textAllCaps="false"
+                    android:textSize="13sp"
+                    app:strokeColor="@color/uv_azul" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTipoAnticipado"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="Programar"
+                    android:textAllCaps="false"
+                    android:textSize="13sp"
+                    app:strokeColor="@color/uv_azul" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Campos pedido anticipado (#campos-anticipado) -->
+            <LinearLayout
+                android:id="@+id/layoutCamposAnticipado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/bg_item_suave"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Fecha de recogida" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFechaRecogida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:hint="Seleccionar fecha (YYYY-MM-DD)"
+                        android:inputType="none"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Hora de recogida (07:00 - 18:00)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etHoraRecogida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:hint="Seleccionar hora (HH:mm)"
+                        android:inputType="none"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- Método de pago -->
+            <TextView
+                style="@style/UvFormLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Método de pago" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMetodoPago"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:boxBackgroundColor="@color/uv_blanco"
+                app:boxCornerRadiusBottomEnd="@dimen/radio"
+                app:boxCornerRadiusBottomStart="@dimen/radio"
+                app:boxCornerRadiusTopEnd="@dimen/radio"
+                app:boxCornerRadiusTopStart="@dimen/radio">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actvMetodoPago"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="Efectivo"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Selector de tarjetas guardadas (#selector-tarjeta-cont) -->
+            <LinearLayout
+                android:id="@+id/layoutSelectorTarjeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/UvFormLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Selecciona una tarjeta" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@color/uv_blanco"
+                    app:boxCornerRadiusBottomEnd="@dimen/radio"
+                    app:boxCornerRadiusBottomStart="@dimen/radio"
+                    app:boxCornerRadiusTopEnd="@dimen/radio"
+                    app:boxCornerRadiusTopStart="@dimen/radio">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/actvTarjetaGuardada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Elige tarjeta registrada"
+                        android:inputType="none"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- Instrucciones especiales (#notasPedido) -->
+            <TextView
+                style="@style/UvFormLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Instrucciones especiales (opcional)" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/UvTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="200"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNotasPedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|start"
+                    android:hint="Ej: sin cebolla, salsa aparte..."
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLength="200"
+                    android:minLines="2"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón confirmar -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirmarPedido"
+                style="@style/UvButtonPrimario"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Confirmar Pedido"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

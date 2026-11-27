@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPosCartNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Enchiladas Suizas" />
+
+            <TextView
+                android:id="@+id/tvPosCartPrecioUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="11sp"
+                tools:text="$48.00 c/u" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_item_suave"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <TextView
+                android:id="@+id/btnPosCartMenos"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:background="@color/uv_blanco"
+                android:gravity="center"
+                android:text="−"
+                android:textColor="@color/uv_gris_900"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPosCartCantidad"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="2" />
+
+            <TextView
+                android:id="@+id/btnPosCartMas"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:background="@color/uv_blanco"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/uv_gris_900"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPosCartSubtotal"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="end"
+            android:textColor="@color/uv_azul"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="$96.00" />
+
+        <ImageButton
+            android:id="@+id/btnPosCartEliminar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Quitar artículo"
+            android:src="@drawable/ic_delete" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_borde" />
+</LinearLayout>

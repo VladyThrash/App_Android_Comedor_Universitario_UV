@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDashPedidoFolio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/uv_gris_900"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="UV-2026-0049" />
+
+            <TextView
+                android:id="@+id/tvDashPedidoTipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_gris_500"
+                android:textSize="12sp"
+                tools:text="Inmediato" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDashPedidoEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_pill_shape"
+            android:backgroundTint="@color/uv_amarillo_light"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:textColor="@color/uv_amarillo_texto"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:text="PENDIENTE" />
+
+        <TextView
+            android:id="@+id/tvDashPedidoTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/uv_azul"
+            android:textSize="14sp"
+            tools:text="$48.00" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_borde" />
+</LinearLayout>

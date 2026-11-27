@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="3dp">
+
+    <TextView
+        android:id="@+id/tvTicketItemCantidad"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:textColor="@color/uv_gris_900"
+        android:textSize="12sp"
+        tools:text="2x" />
+
+    <TextView
+        android:id="@+id/tvTicketItemNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="monospace"
+        android:paddingEnd="8dp"
+        android:textColor="@color/uv_gris_900"
+        android:textSize="12sp"
+        tools:text="Enchiladas Suizas" />
+
+    <TextView
+        android:id="@+id/tvTicketItemSubtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:textColor="@color/uv_gris_900"
+        android:textSize="12sp"
+        tools:text="$96.00" />
+</LinearLayout>

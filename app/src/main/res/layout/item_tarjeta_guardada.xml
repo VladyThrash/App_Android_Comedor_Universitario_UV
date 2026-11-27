@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_tarjeta_gradient"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTarjetaAliasItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.8"
+            android:textAllCaps="true"
+            android:textColor="@color/uv_blanco"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="MI TARJETA PRINCIPAL" />
+
+        <TextView
+            android:id="@+id/tvTarjetaBadgePredeterminada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_shape"
+            android:backgroundTint="@color/uv_amarillo"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="PREDETERMINADA"
+            android:textColor="@color/uv_negro"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTarjetaNumeroEnmascarado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.1"
+        android:textColor="@color/uv_blanco"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="•••• •••• •••• 4821" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.65"
+                android:text="TITULAR"
+                android:textColor="@color/uv_blanco"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvTarjetaTitularItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_blanco"
+                android:textSize="13sp"
+                tools:text="VLADIMIR YEPEZ CONTRERAS" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.65"
+                android:text="VENCE"
+                android:textColor="@color/uv_blanco"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvTarjetaVencimientoItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_blanco"
+                android:textSize="13sp"
+                tools:text="09/29" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTarjetaMarcarPredeterminada"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="10dp"
+            android:text="Marcar predeterminada"
+            android:textAllCaps="false"
+            android:textColor="@color/uv_blanco"
+            android:textSize="11sp"
+            app:backgroundTint="#33FFFFFF"
+            app:cornerRadius="6dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTarjetaEliminar"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:paddingHorizontal="10dp"
+            android:text="Eliminar"
+            android:textAllCaps="false"
+            android:textColor="@color/uv_blanco"
+            android:textSize="11sp"
+            app:backgroundTint="#80FF5050"
+            app:cornerRadius="6dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -3,150 +3,70 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawerLayout"
+    android:id="@+id/drawerLayoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Contenido principal -->
+    <!-- Contenedor principal -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_fondo">
 
-        <!-- Navbar superior (.navbar) -->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/uv_azul"
             app:elevation="4dp">
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbarPrincipal"
+                android:id="@+id/toolbarMain"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/nav_height"
+                android:layout_height="?attr/actionBarSize"
                 android:background="@color/uv_azul"
-                app:contentInsetEnd="12dp"
-                app:contentInsetStart="8dp">
+                app:navigationIconTint="@color/uv_blanco"
+                app:title="Comedor UV"
+                app:titleTextColor="@color/uv_blanco">
 
+                <!-- Acciones derechas: Notificaciones y Carrito -->
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_gravity="end"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingEnd="8dp">
 
-                    <!-- Botón hamburguesa -->
-                    <ImageButton
-                        android:id="@+id/btnAbrirSidebar"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="Abrir menú"
-                        android:src="@drawable/ic_menu" />
-
-                    <!-- Logo UV (.navbar-brand) -->
-                    <TextView
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_marginStart="6dp"
-                        android:background="@drawable/bg_logo_badge"
-                        android:fontFamily="sans-serif-black"
-                        android:gravity="center"
-                        android:text="UV"
-                        android:textColor="@color/uv_azul"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:fontFamily="sans-serif-medium"
-                            android:maxLines="1"
-                            android:text="Comedor Universitario"
-                            android:textColor="@color/uv_blanco"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.8"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Universidad Veracruzana"
-                            android:textColor="@color/uv_blanco"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-
-                    <!-- Campana de notificaciones (#notif-campana) -->
+                    <!-- Campanita de notificaciones -->
                     <FrameLayout
-                        android:id="@+id/containerNotificaciones"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="4dp">
+                        android:id="@+id/btnToolbarNotificaciones"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="Notificaciones"
+                        android:focusable="true">
 
-                        <ImageButton
-                            android:id="@+id/btnNotificaciones"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="?attr/selectableItemBackgroundBorderless"
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
                             android:contentDescription="Notificaciones"
-                            android:src="@drawable/ic_notifications" />
+                            android:src="@drawable/ic_notifications"
+                            app:tint="@color/uv_blanco" />
 
                         <TextView
                             android:id="@+id/tvNotifBadge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="16dp"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
                             android:layout_gravity="top|end"
                             android:layout_marginTop="4dp"
                             android:layout_marginEnd="4dp"
-                            android:background="@drawable/bg_pill_shape"
-                            android:backgroundTint="@color/uv_amarillo"
+                            android:background="@drawable/bg_circle_shape"
+                            android:backgroundTint="@color/uv_rojo"
                             android:gravity="center"
-                            android:minWidth="16dp"
-                            android:paddingHorizontal="4dp"
-                            android:textColor="@color/uv_negro"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:visibility="gone"
-                            tools:text="2"
-                            tools:visibility="visible" />
-                    </FrameLayout>
-
-                    <!-- Botón Carrito (#btn-carrito) -->
-                    <FrameLayout
-                        android:id="@+id/containerCarrito"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="6dp">
-
-                        <ImageButton
-                            android:id="@+id/btnCarrito"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="Carrito"
-                            android:src="@drawable/ic_shopping_cart" />
-
-                        <TextView
-                            android:id="@+id/tvCarritoBadge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:layout_gravity="top|end"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="4dp"
-                            android:background="@drawable/bg_pill_shape"
-                            android:backgroundTint="@color/uv_amarillo"
-                            android:gravity="center"
-                            android:minWidth="16dp"
-                            android:paddingHorizontal="4dp"
-                            android:textColor="@color/uv_negro"
+                            android:textColor="@color/uv_blanco"
                             android:textSize="10sp"
                             android:textStyle="bold"
                             android:visibility="gone"
@@ -154,41 +74,79 @@
                             tools:visibility="visible" />
                     </FrameLayout>
 
-                    <!-- Avatar iniciales (.user-avatar) -->
-                    <TextView
-                        android:id="@+id/tvToolbarAvatar"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/bg_circle_shape"
-                        android:backgroundTint="@color/uv_verde"
-                        android:fontFamily="sans-serif-medium"
-                        android:gravity="center"
-                        android:textColor="@color/uv_blanco"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        tools:text="VY" />
+                    <!-- Carrito de compras -->
+                    <FrameLayout
+                        android:id="@+id/btnToolbarCarrito"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="Carrito de pedido"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Carrito"
+                            android:src="@drawable/ic_shopping_cart"
+                            app:tint="@color/uv_blanco" />
+
+                        <TextView
+                            android:id="@+id/tvCarritoBadge"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="top|end"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:background="@drawable/bg_circle_shape"
+                            android:backgroundTint="@color/uv_amarillo"
+                            android:gravity="center"
+                            android:textColor="@color/uv_azul"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            tools:text="2"
+                            tools:visibility="visible" />
+                    </FrameLayout>
                 </LinearLayout>
             </com.google.android.material.appbar.MaterialToolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Contenedor de vistas (.page-wrapper) -->
+        <!-- Host de fragmentos -->
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainer"
+            android:id="@+id/navHostFragmentMain"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            app:defaultNavHost="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:navGraph="@navigation/nav_graph" />
+
+        <!-- Botón flotante de asistencia por voz (accesibilidad.js) -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAccesibilidadVoz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:contentDescription="Leer pantalla en voz alta"
+            app:backgroundTint="@color/uv_azul"
+            app:srcCompat="@drawable/ic_volume_up"
+            app:tint="@color/uv_blanco" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <!-- Menú lateral (.sidebar) -->
+    <!-- Menú lateral por roles -->
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="280dp"
+        android:id="@+id/navViewMain"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/uv_blanco"
         app:headerLayout="@layout/nav_header_main"
+        app:itemIconTint="@color/uv_azul"
         app:itemTextColor="@color/uv_gris_900"
-        app:menu="@menu/menu_drawer" />
+        app:menu="@menu/menu_nav_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

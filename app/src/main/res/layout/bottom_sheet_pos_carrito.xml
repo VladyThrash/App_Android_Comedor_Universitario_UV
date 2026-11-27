@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/uv_blanco"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/UvCardTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Venta actual"
+                android:textColor="@color/uv_azul"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/btnCerrarPosCarrito"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@drawable/bg_circle_shape"
+                android:backgroundTint="@color/uv_gris_200"
+                android:contentDescription="Cerrar venta actual"
+                android:src="@drawable/ic_close" />
+        </LinearLayout>
+
+        <!-- Caja Cliente opcional (.pos-cliente-box) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_item_suave"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                style="@style/UvFormLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Cliente (opcional)"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/UvTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPosBuscarCliente"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email o matrícula"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPosBuscarCliente"
+                    style="@style/UvButtonPrimario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:text="Buscar"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Cliente encontrado (.pos-cliente-info) -->
+            <LinearLayout
+                android:id="@+id/layoutPosClienteInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_alert_exito"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvPosClienteIniciales"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_circle_shape"
+                    android:backgroundTint="@color/uv_verde"
+                    android:gravity="center"
+                    android:textColor="@color/uv_blanco"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="VY" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvPosClienteNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_gris_900"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="Vladimir Yepez Contreras" />
+
+                    <TextView
+                        android:id="@+id/tvPosClienteDetalle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uv_gris_700"
+                        android:textSize="11sp"
+                        tools:text="zs22000000@estudiantes.uv.mx · BECADO · 3 comidas" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnPosLimpiarCliente"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Quitar cliente"
+                    android:src="@drawable/ic_close" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Si no asocias cliente, queda como venta anónima."
+                android:textColor="@color/uv_gris_500"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Lista de artículos en venta -->
+        <TextView
+            android:id="@+id/tvPosCartVacio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="32dp"
+            android:text="Selecciona platillos del menú"
+            android:textColor="@color/uv_gris_500"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPosCartItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- Total (.pos-totales) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_item_suave"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="TOTAL"
+                android:textColor="@color/uv_azul"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvPosCarritoTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/uv_azul"
+                android:textSize="20sp"
+                tools:text="$70.00" />
+        </LinearLayout>
+
+        <!-- Método de pago (.metodo-grid) -->
+        <TextView
+            style="@style/UvFormLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="Método de pago" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/togglePosMetodoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:checkedButton="@id/btnPosMetodoEfectivo"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPosMetodoEfectivo"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:text="Efectivo"
+                android:textAllCaps="false"
+                app:strokeColor="@color/uv_azul" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPosMetodoTarjeta"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:text="Tarjeta"
+                android:textAllCaps="false"
+                app:strokeColor="@color/uv_azul" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPosAbrirCobro"
+            style="@style/UvButtonPrimario"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Cobrar"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

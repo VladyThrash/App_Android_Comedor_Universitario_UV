@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fondo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_pantalla">
+
+        <!-- Encabezado y botón Nuevo Platillo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/UvPageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gestión de Menú" />
+
+                <TextView
+                    android:id="@+id/tvAdminMenuSubtitulo"
+                    style="@style/UvPageSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    tools:text="24 platillos — 10 del día · 14 a la carta" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdminNuevoPlatillo"
+                style="@style/UvButtonPrimario"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:paddingHorizontal="14dp"
+                android:text="+ Nuevo"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Alertas -->
+        <TextView
+            android:id="@+id/tvAdminMenuExito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_alert_exito"
+            android:padding="12dp"
+            android:textColor="@color/uv_verde_dark"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvAdminMenuError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_alert_error"
+            android:padding="12dp"
+            android:textColor="@color/uv_rojo_dark"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <!-- Sección 1: Menú del Día -->
+        <TextView
+            android:id="@+id/tvAdminMenuDiaHeader"
+            style="@style/UvCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/uv_azul"
+            tools:text="Menú del Día (10)" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAdminMenuDia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- Sección 2: A la Carta -->
+        <TextView
+            android:id="@+id/tvAdminCartaHeader"
+            style="@style/UvCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/uv_azul"
+            tools:text="A la Carta (14)" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAdminCarta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_item_suave"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvSemanalItemNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/uv_gris_900"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Mole Poblano con Arroz" />
+
+        <TextView
+            android:id="@+id/tvSemanalItemCupoInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/uv_gris_500"
+            android:textSize="12sp"
+            tools:text="Cupo: 50 · Vendidos: 18 · Restantes: 32" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSemanalItemPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/uv_azul"
+        android:textSize="14sp"
+        tools:text="$35.00" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSemanalItemQuitar"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:minWidth="0dp"
+        android:paddingHorizontal="10dp"
+        android:text="Quitar"
+        android:textAllCaps="false"
+        android:textColor="@color/uv_rojo"
+        android:textSize="12sp"
+        app:backgroundTint="@color/uv_blanco"
+        app:cornerRadius="8dp" />
+</LinearLayout>
