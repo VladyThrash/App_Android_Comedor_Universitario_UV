@@ -6,6 +6,9 @@ android {
     namespace = "com.example.comedor_universitario_uv"
     compileSdk {
         version = release(37)
+        buildFeatures {
+            viewBinding = true
+        }
     }
 
     defaultConfig {
@@ -40,4 +43,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 }

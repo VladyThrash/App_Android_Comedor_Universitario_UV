@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Los id deben coincidir con los destinos del nav_graph para usar setupWithNavController -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuFragment"
+        android:icon="@drawable/ic_menu_comida"
+        android:title="@string/nav_menu" />
+    <item
+        android:id="@+id/carritoFragment"
+        android:icon="@drawable/ic_carrito"
+        android:title="@string/nav_carrito" />
+    <item
+        android:id="@+id/pedidosFragment"
+        android:icon="@drawable/ic_pedidos"
+        android:title="@string/nav_pedidos" />
+    <item
+        android:id="@+id/perfilFragment"
+        android:icon="@drawable/ic_perfil"
+        android:title="@string/nav_perfil" />
+</menu>

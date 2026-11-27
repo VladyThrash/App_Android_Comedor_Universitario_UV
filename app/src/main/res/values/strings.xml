@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">Comedor_Universitario_UV</string>
+    <string name="app_name">ComedorUV</string>
+
+    <!-- Navegación inferior -->
+    <string name="nav_menu">Menú</string>
+    <string name="nav_carrito">Carrito</string>
+    <string name="nav_pedidos">Pedidos</string>
+    <string name="nav_perfil">Perfil</string>
+
+    <!-- Login -->
+    <string name="login_subtitulo">Comedor Universitario UV</string>
+    <string name="login_correo">Correo institucional</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="login_boton">Iniciar sesión</string>
+    <string name="login_sin_cuenta">¿No tienes cuenta?</string>
+    <string name="login_registrate">Regístrate</string>
+
+    <!-- Menú -->
+    <string name="menu_titulo">Menú de hoy</string>
+    <string name="menu_filtro_todo">Todo</string>
+    <string name="menu_filtro_desayuno">Desayuno</string>
+    <string name="menu_filtro_comida">Comida</string>
+    <string name="menu_filtro_carta">Carta</string>
+    <string name="menu_vacio">No hay platillos disponibles por ahora</string>
+    <string name="platillo_agregar">Agregar</string>
+    <string name="cd_imagen_platillo">Imagen del platillo</string>
 </resources>

@@ -1,8 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Comedor_Universitario_UV" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/uv_primary</item>
+        <item name="colorOnPrimary">@color/uv_on_primary</item>
+        <item name="colorSecondary">@color/uv_secondary</item>
+        <item name="colorOnSecondary">@color/uv_on_secondary</item>
+        <item name="colorSurface">@color/uv_surface</item>
+        <item name="colorOnSurface">@color/uv_text</item>
+        <item name="colorError">@color/uv_error</item>
+        <item name="android:colorBackground">@color/uv_background</item>
+        <item name="android:statusBarColor">@color/uv_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <style name="Theme.Comedor_Universitario_UV" parent="Base.Theme.Comedor_Universitario_UV" />
