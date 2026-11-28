@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
  * Actividad única de la app: aloja el NavHost y la barra de navegación inferior.
- * La barra solo se muestra en los cuatro destinos principales.
+ * La barra solo se muestra en los destinos principales.
  */
 class MainActivity : AppCompatActivity() {
 
@@ -32,11 +32,16 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setupWithNavController(navController)
 
+        // TEMPORAL: muestra la pestaña del personal para poder probarla.
+        // Debe mostrarse solo si el rol del usuario es EMPLEADO o ADMIN.
+        bottomNav.menu.findItem(R.id.empleadoFragment).isVisible = true
+
         val destinosConBarra = setOf(
             R.id.menuFragment,
             R.id.carritoFragment,
             R.id.pedidosFragment,
-            R.id.perfilFragment
+            R.id.perfilFragment,
+            R.id.empleadoFragment
         )
         navController.addOnDestinationChangedListener { _, destino, _ ->
             bottomNav.visibility = if (destino.id in destinosConBarra) View.VISIBLE else View.GONE

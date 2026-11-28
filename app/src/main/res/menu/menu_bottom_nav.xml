@@ -17,4 +17,10 @@
         android:id="@+id/perfilFragment"
         android:icon="@drawable/ic_perfil"
         android:title="@string/nav_perfil" />
+    <!-- Solo debe verse para EMPLEADO y ADMIN; se muestra desde el código -->
+    <item
+        android:id="@+id/empleadoFragment"
+        android:icon="@drawable/ic_escaner"
+        android:title="@string/nav_personal"
+        android:visible="false" />
 </menu>

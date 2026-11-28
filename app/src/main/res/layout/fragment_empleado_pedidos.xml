@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/uv_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvTituloEmpleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/empleado_titulo"
+            android:textColor="@color/uv_text"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvResumenCola"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/uv_text_secondary"
+            android:textSize="14sp"
+            tools:text="5 pedidos en cola" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupEstados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:chipSpacingHorizontal="8dp"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPendientes"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/empleado_filtro_pendientes" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPreparando"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empleado_filtro_preparando" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipListos"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empleado_filtro_listos" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPedidosEmpleado"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            tools:listitem="@layout/item_pedido_empleado" />
+
+        <TextView
+            android:id="@+id/tvEmpleadoVacio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/empleado_vacio"
+            android:textColor="@color/uv_text_secondary"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/pbEmpleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/uv_surface"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEscanearQr"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/empleado_escanear"
+            android:textColor="@color/uv_on_secondary"
+            app:backgroundTint="@color/uv_secondary" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/uv_surface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvFolioEmpleado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/uv_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Pedido #1234" />
+
+            <TextView
+                android:id="@+id/tvHoraEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_text_secondary"
+                android:textSize="14sp"
+                tools:text="14:30" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvClienteEmpleado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/uv_text_secondary"
+            android:textSize="14sp"
+            tools:text="Nombre del cliente · Estudiante" />
+
+        <!-- Un producto por línea: "2 x Enchiladas" -->
+        <TextView
+            android:id="@+id/tvProductosEmpleado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:textColor="@color/uv_text"
+            android:textSize="14sp"
+            tools:text="2 x Enchiladas\n1 x Agua de jamaica" />
+
+        <!-- Visible solo si el pedido trae notas -->
+        <TextView
+            android:id="@+id/tvNotasEmpleado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/uv_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="Nota: sin cebolla"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTotalEmpleado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/uv_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="$60.00" />
+
+            <!-- El color se asigna desde el código según el estado -->
+            <TextView
+                android:id="@+id/tvEstadoEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_text_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Pendiente" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelarEmpleado"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/empleado_cancelar"
+                android:textColor="@color/uv_error" />
+
+            <!-- El texto cambia según el estado: Marcar preparando, listo o entregado -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAvanzarEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:minHeight="48dp"
+                android:text="@string/empleado_marcar_preparando"
+                android:textColor="@color/uv_on_secondary"
+                app:backgroundTint="@color/uv_secondary" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

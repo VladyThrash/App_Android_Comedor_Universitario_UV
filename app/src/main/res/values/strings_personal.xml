@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Navegación -->
+    <string name="nav_personal">Personal</string>
+
+    <!-- Lista de pedidos del personal -->
+    <string name="empleado_titulo">Pedidos del comedor</string>
+    <string name="empleado_resumen">%1$d pedidos en cola</string>
+    <string name="empleado_filtro_pendientes">Pendientes</string>
+    <string name="empleado_filtro_preparando">Preparando</string>
+    <string name="empleado_filtro_listos">Listos</string>
+    <string name="empleado_vacio">No hay pedidos en esta sección</string>
+    <string name="empleado_escanear">Escanear QR</string>
+    <string name="empleado_cancelar">Cancelar</string>
+    <string name="empleado_marcar_preparando">Marcar preparando</string>
+    <string name="empleado_marcar_listo">Marcar listo</string>
+    <string name="empleado_marcar_entregado">Marcar entregado</string>
+
+    <!-- Validación del QR -->
+    <string name="validar_valido">Pedido válido</string>
+    <string name="validar_no_valido">Pedido no válido</string>
+    <string name="validar_total">Total</string>
+    <string name="validar_marcar_entregado">Marcar como entregado</string>
+    <string name="validar_escanear_otro">Escanear otro código</string>
+    <string name="validar_volver">Volver a la lista</string>
+</resources>

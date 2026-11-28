@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Los id de los 4 destinos de la barra inferior deben coincidir con menu_bottom_nav.xml -->
+<!-- Los id de los destinos de la barra inferior deben coincidir con menu_bottom_nav.xml -->
 <navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -54,4 +54,17 @@
         android:name="com.example.comedor_universitario_uv.ui.PerfilFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
+
+    <!-- Vista del personal del comedor -->
+    <fragment
+        android:id="@+id/empleadoFragment"
+        android:name="com.example.comedor_universitario_uv.ui.EmpleadoPedidosFragment"
+        android:label="Personal"
+        tools:layout="@layout/fragment_empleado_pedidos" />
+
+    <fragment
+        android:id="@+id/validarPedidoFragment"
+        android:name="com.example.comedor_universitario_uv.ui.ValidarPedidoFragment"
+        android:label="Validar pedido"
+        tools:layout="@layout/fragment_validar_pedido" />
 </navigation>
