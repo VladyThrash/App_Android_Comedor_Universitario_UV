@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/uv_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTituloContacto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contacto_titulo"
+            android:textColor="@color/uv_text"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Comentarios y reportes por correo -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/uv_surface"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contacto_seccion_comentarios"
+                    android:textColor="@color/uv_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupTipoMensaje"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipSpacingHorizontal="8dp"
+                        app:selectionRequired="true"
+                        app:singleLine="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipComentario"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/contacto_tipo_comentario" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipProblema"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/contacto_tipo_problema" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipSugerencia"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/contacto_tipo_sugerencia" />
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilMensajeContacto"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="@string/contacto_mensaje_hint"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="500">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMensajeContacto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:maxLength="500"
+                        android:minLines="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEnviarCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:minHeight="48dp"
+                    android:text="@string/contacto_enviar_correo"
+                    android:textColor="@color/uv_on_secondary"
+                    app:backgroundTint="@color/uv_secondary" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Calificación de la app -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/uv_surface"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contacto_seccion_calificacion"
+                    android:textColor="@color/uv_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/ratingApp"
+                    style="?android:attr/ratingBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:numStars="5"
+                    android:progressBackgroundTint="#C9CDD2"
+                    android:progressTint="@color/uv_secondary"
+                    android:rating="0"
+                    android:stepSize="1" />
+
+                <TextView
+                    android:id="@+id/tvRatingTexto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/contacto_calificacion_instruccion"
+                    android:textColor="@color/uv_text_secondary"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEnviarCalificacion"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:minHeight="48dp"
+                    android:text="@string/contacto_enviar_calificacion" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

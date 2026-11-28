@@ -8,11 +8,15 @@ import androidx.navigation.navOptions
 import com.example.comedor_universitario_uv.R
 import com.example.comedor_universitario_uv.databinding.FragmentPerfilBinding
 
-/** Perfil del usuario y cierre de sesión. */
+/** Perfil del usuario, acceso a contacto y evaluación, y cierre de sesión. */
 class PerfilFragment : Fragment(R.layout.fragment_perfil) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = FragmentPerfilBinding.bind(view)
+
+        binding.btnContacto.setOnClickListener {
+            findNavController().navigate(R.id.contactoFragment)
+        }
 
         binding.btnCerrarSesion.setOnClickListener {
             // TODO: cerrar la sesión en la base de datos

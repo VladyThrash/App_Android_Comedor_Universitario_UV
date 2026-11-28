@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logo provisional: plato con tenedor y cuchara. Sustituir por el logo oficial si el equipo tiene uno. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Disco ámbar -->
+    <path
+        android:fillColor="#F2A900"
+        android:pathData="M60,60m-58,0a58,58 0,1,0 116,0a58,58 0,1,0 -116,0" />
+
+    <!-- Plato -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,60m-44,0a44,44 0,1,0 88,0a44,44 0,1,0 -88,0" />
+
+    <!-- Tenedor: dientes, base y mango -->
+    <path
+        android:fillColor="#1F4E8C"
+        android:pathData="M41,36h3v16h-3z M46.5,36h3v16h-3z M52,36h3v16h-3z M41,50h14v4h-14z M46.5,54h3v28h-3z" />
+
+    <!-- Cuchara: cabeza y mango -->
+    <path
+        android:fillColor="#1F4E8C"
+        android:pathData="M65,46a7,10 0,1,0 14,0a7,10 0,1,0 -14,0z M70.5,54h3v28h-3z" />
+</vector>
