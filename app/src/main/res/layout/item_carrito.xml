@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/uv_surface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNombreCarrito"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/uv_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Enchiladas" />
+
+                <!-- Se muestra solo si el platillo tiene notas -->
+                <TextView
+                    android:id="@+id/tvNotaCarrito"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/uv_text_secondary"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    tools:text="Nota: sin cebolla"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSubtotalCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/uv_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="$45.00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMenosCarrito"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/cantidad_disminuir"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="48dp"
+                android:padding="0dp"
+                android:text="−"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvCantidadCarrito"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/uv_text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMasCarrito"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/cantidad_aumentar"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="48dp"
+                android:padding="0dp"
+                android:text="+"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQuitarCarrito"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/carrito_quitar"
+                android:textColor="@color/uv_error" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

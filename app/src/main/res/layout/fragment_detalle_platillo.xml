@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/uv_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivPlatilloDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="#E3E6EA"
+                android:contentDescription="@string/cd_imagen_platillo"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium" />
+
+            <TextView
+                android:id="@+id/tvNombreDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/uv_text"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="Enchiladas" />
+
+            <TextView
+                android:id="@+id/tvCategoriaDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_text_secondary"
+                android:textSize="14sp"
+                tools:text="Comida" />
+
+            <TextView
+                android:id="@+id/tvDescripcionDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/uv_text"
+                android:textSize="16sp"
+                tools:text="Tortillas rellenas de pollo con salsa verde, crema y queso." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/detalle_precio_rol"
+                android:textColor="@color/uv_text_secondary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvPrecioDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/uv_primary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="$45.00" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNotas"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/detalle_notas"
+                app:counterEnabled="true"
+                app:counterMaxLength="120">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNotas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLength="120"
+                    android:minLines="2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/detalle_cantidad"
+                    android:textColor="@color/uv_text"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMenosDetalle"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/cantidad_disminuir"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:minWidth="48dp"
+                    android:padding="0dp"
+                    android:text="−"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvCantidadDetalle"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/uv_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMasDetalle"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/cantidad_aumentar"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:minWidth="48dp"
+                    android:padding="0dp"
+                    android:text="+"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/uv_surface"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAgregarCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/detalle_agregar"
+            android:textColor="@color/uv_on_secondary"
+            app:backgroundTint="@color/uv_secondary" />
+    </LinearLayout>
+</LinearLayout>

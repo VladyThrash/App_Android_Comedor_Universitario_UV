@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Comunes -->
+    <string name="cantidad_aumentar">Aumentar cantidad</string>
+    <string name="cantidad_disminuir">Disminuir cantidad</string>
+
+    <!-- Registro -->
+    <string name="registro_titulo">Crear cuenta</string>
+    <string name="registro_nombre">Nombre completo</string>
+    <string name="registro_correo">Correo institucional</string>
+    <string name="registro_contrasena">Contraseña</string>
+    <string name="registro_confirmar">Confirmar contraseña</string>
+    <string name="registro_aviso">Las cuentas nuevas se crean como estudiante. Si eres docente o personal, el administrador ajustará tu rol.</string>
+    <string name="registro_boton">Crear cuenta</string>
+    <string name="registro_ya_tienes">¿Ya tienes cuenta?</string>
+    <string name="registro_inicia_sesion">Inicia sesión</string>
+
+    <!-- Detalle de platillo -->
+    <string name="detalle_precio_rol">Precio para tu rol</string>
+    <string name="detalle_notas">Notas (por ejemplo: sin cebolla)</string>
+    <string name="detalle_cantidad">Cantidad</string>
+    <string name="detalle_agregar">Agregar al carrito</string>
+
+    <!-- Carrito -->
+    <string name="carrito_titulo">Tu pedido</string>
+    <string name="carrito_vacio">Tu carrito está vacío</string>
+    <string name="carrito_metodo_pago">Método de pago</string>
+    <string name="carrito_pago_efectivo">Efectivo</string>
+    <string name="carrito_pago_tarjeta">Tarjeta</string>
+    <string name="carrito_pago_beca">Beca</string>
+    <string name="carrito_total">Total</string>
+    <string name="carrito_confirmar">Confirmar pedido</string>
+    <string name="carrito_quitar">Quitar</string>
+
+    <!-- Comprobante -->
+    <string name="comprobante_titulo">Comprobante de pedido</string>
+    <string name="comprobante_instruccion">Muestra este código en caja para recoger tu pedido</string>
+    <string name="comprobante_fecha">Fecha</string>
+    <string name="comprobante_pago">Pago</string>
+    <string name="comprobante_total">Total</string>
+    <string name="comprobante_compartir">Compartir comprobante</string>
+    <string name="comprobante_volver">Volver al menú</string>
+    <string name="cd_qr_pedido">Código QR del pedido</string>
+
+    <!-- Pedidos -->
+    <string name="pedidos_titulo">Mis pedidos</string>
+    <string name="pedidos_filtro_activos">Activos</string>
+    <string name="pedidos_filtro_historial">Historial</string>
+    <string name="pedidos_vacio">Aún no tienes pedidos en esta sección</string>
+    <string name="pedidos_ver_comprobante">Ver comprobante</string>
+    <string name="pedidos_repetir">Repetir pedido</string>
+
+    <!-- Perfil -->
+    <string name="perfil_titulo">Mi perfil</string>
+    <string name="perfil_nombre">Nombre</string>
+    <string name="perfil_beca">Beca activa</string>
+    <string name="perfil_guardar">Guardar cambios</string>
+    <string name="perfil_cambiar_contrasena">Cambiar contraseña</string>
+    <string name="perfil_cerrar_sesion">Cerrar sesión</string>
+</resources>
